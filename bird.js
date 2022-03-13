@@ -37,7 +37,7 @@ class Bird {
         ctx.drawImage(dragon,0,0,this.originalWidth,this.originalHeight,this.x,this.y,this.width*2,this.height*2)
     }
     flap() {
-        this.vy -= 3;
+        this.vy -= 1.8;
     }
 }
 
