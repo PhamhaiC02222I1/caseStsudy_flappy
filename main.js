@@ -16,9 +16,26 @@ gradient.addColorStop("0.55", "#4040ff");
 gradient.addColorStop("0.6", "#000");
 gradient.addColorStop("0.65", "#fff");
 
+// const background = new Image();
+// background.src='BG.png';
+// const BG={
+//     x1 :0,
+//     x2:canvas.width,
+//     y:0,
+//     width:canvas.width,
+//     height:canvas.height
+// }
+// function handleBackground(){
+//     if(BG.x1<=BG.width){
+//         BG.x1=BG.width;
+//     }else BG.x1-=gamespeed;
+//     ctx.drawImage(background,BG.x1,BG.y,BG.width,BG.height)
+// }
+
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //ctx.fillRect(10, canvas.height - 90, 50, 50);
+    // handleBackground();
     handlleObstacle();
     handleParticles();
     bird.update();
@@ -36,7 +53,7 @@ function animate() {
     frame++;
 }
 
-animate();
+
 
 window.addEventListener("keydown", function (e) {
     if (e.code === "Space") spacePressed = true;
@@ -70,3 +87,5 @@ function handleCollision() {
         }
     }
 }
+
+animate();
