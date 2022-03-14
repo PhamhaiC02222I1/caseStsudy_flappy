@@ -8,6 +8,7 @@ let hue = 0;
 let frame = 0;
 let score = 0;
 
+
 const background = new Image();
 background.src='BG.png';
 function animate() {

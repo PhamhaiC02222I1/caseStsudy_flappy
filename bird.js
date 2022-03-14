@@ -31,7 +31,10 @@ class Bird {
     }
     flap() {
         this.vy -= 1.8;
+        fly.play();
     }
 }
 let bird = new Bird();
+let fly =new Audio();
+fly.src ='sound/fly.mp3'
 

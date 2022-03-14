@@ -18,12 +18,15 @@ class Obstacle {
     update() {
         this.x -= 2;
         if (!this.counted && this.x+this.width < bird.x+bird.width) {
+            sco.play()
             score++;
             this.counted = true;
         }
         this.draw();
     }
 }
+const sco =new Audio();
+sco.src='sound/score.mp3';
 function handlleObstacle() {
     if (frame % 100 === 0) {
         obstaclesArray.unshift(new Obstacle());
