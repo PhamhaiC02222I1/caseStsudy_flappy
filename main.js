@@ -16,8 +16,8 @@ gradient.addColorStop("0.55", "#4040ff");
 gradient.addColorStop("0.6", "#000");
 gradient.addColorStop("0.65", "#fff");
 
-// const background = new Image();
-// background.src='BG.png';
+const background = new Image();
+background.src='BG.png';
 // const BG={
 //     x1 :0,
 //     x2:canvas.width,
@@ -34,12 +34,14 @@ gradient.addColorStop("0.65", "#fff");
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(background,0,0,canvas.width,canvas.height)
     //ctx.fillRect(10, canvas.height - 90, 50, 50);
     // handleBackground();
     handlleObstacle();
     handleParticles();
     bird.update();
     bird.draw();
+
     ctx.fillStyle = gradient;
     ctx.font = "90px Georgia";
     ctx.strokeText(score, 450, 70);
@@ -51,6 +53,7 @@ function animate() {
     angle += 0.08;
     hue++;
     frame++;
+
 }
 
 
@@ -70,9 +73,9 @@ function handleCollision() {
         if (
             bird.x < obstaclesArray[i].x + obstaclesArray[i].width &&
             bird.x + bird.width > obstaclesArray[i].x &&
-            ((bird.y < 0 + obstaclesArray[i].top && bird.y + bird.height > 0) ||
-                (bird.y > canvas.height - obstaclesArray[i].bottom &&
-                    bird.y + bird.height < canvas.height))
+            ((bird.y < 0 + obstaclesArray[i].top ) ||
+                (bird.y > canvas.height - obstaclesArray[i].bottom
+                   ))
         ) {
             ctx.drawImage(bang, bird.x, bird.y, 50, 50);
             ctx.font = "40px sans-serif";
@@ -87,5 +90,4 @@ function handleCollision() {
         }
     }
 }
-
 animate();
