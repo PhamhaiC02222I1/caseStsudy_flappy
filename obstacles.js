@@ -1,10 +1,10 @@
 const obstaclesArray = [];
 class Obstacle {
     constructor() {
-        this.top = (Math.random() * canvas.height) / 3 + 50;
-        this.bottom = (Math.random() * canvas.height) / 3 + 55;
-        this.x = canvas.width;
-        this.width = 20;
+        this.top = (Math.random() * canvas.height) / 3+43 ;
+        this.bottom = (Math.random() * canvas.height) / 3 +43;
+        this.x =500;
+        this.width = 60;
         this.color = "hsla(" + hue + ",100%,50%,1)";
         this.counted = false;
     }
@@ -16,8 +16,8 @@ class Obstacle {
         ctx.fillRect(this.x, canvas.height - this.bottom, this.width, this.bottom);
     }
     update() {
-        this.x -= gamespeed;
-        if (!this.counted && this.x < bird.x) {
+        this.x -= 2;
+        if (!this.counted && this.x+this.width < bird.x+bird.width) {
             score++;
             this.counted = true;
         }
@@ -25,7 +25,7 @@ class Obstacle {
     }
 }
 function handlleObstacle() {
-    if (frame % 150 === 0) {
+    if (frame % 100 === 0) {
         obstaclesArray.unshift(new Obstacle());
     }
 
