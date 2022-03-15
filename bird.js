@@ -10,7 +10,7 @@ class Bird {
         this.originalHeight=680
         this.width = 20;
         this.height = 20;
-        this.weight =0.6 ;
+        this.weight =1 ;
         // 1.2
     }
     update() {

@@ -21,7 +21,27 @@ function animate() {
     ctx.strokeText(score, 450, 70);
     ctx.fillText(score, 450, 70);
     handleCollision();
-    if (handleCollision()) return;
+    if (handleCollision()){
+        if  (confirm("play again?")) {
+            ctx.drawImage(bang, bird.x, bird.y, 50, 50);
+            ctx.font = "40px sans-serif";
+            ctx.fillStyle = "Red";
+            ctx.fillText(
+                "Game Over, Your Score is " + score,
+                50,
+                canvas.height / 2
+            );
+            window.location.reload()
+        }else  window.location.reload()
+
+        return;
+    }
+
+
+            
+            // window.location.reload()
+
+
     requestAnimationFrame(animate);
     hue++;
     frame++;
