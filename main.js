@@ -39,10 +39,9 @@ bang.src = "bang.png";
 function handleCollision() {
     for (let i = 0; i < obstaclesArray.length; i++) {
         if ((bird.x < obstaclesArray[i].x + obstaclesArray[i].width) &&
-            (bird.x + bird.width > obstaclesArray[i].x)&&
-            ((bird.y < obstaclesArray[i].top ) ||
-                (bird.y+bird.height > canvas.height - obstaclesArray[i].bottom)))
-         {
+            (bird.x + bird.width + 15 > obstaclesArray[i].x) &&
+            ((bird.y < obstaclesArray[i].top) ||
+                (bird.y + bird.height > canvas.height - obstaclesArray[i].bottom)) || (bird.y + bird.height + 10 > canvas.height) || (bird.y + bird.height < 0)) {
             ctx.drawImage(bang, bird.x, bird.y, 50, 50);
             ctx.font = "40px sans-serif";
             ctx.fillStyle = "Red";

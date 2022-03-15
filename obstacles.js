@@ -1,8 +1,8 @@
 const obstaclesArray = [];
 class Obstacle {
     constructor() {
-        this.top = (Math.random() * canvas.height) / 3+43 ;
-        this.bottom = (Math.random() * canvas.height) / 3 +43;
+        this.top = (Math.random() * canvas.height) / 3+40 ;
+        this.bottom = (Math.random() * canvas.height) / 3 +40;
         this.x =500;
         this.width = 60;
         this.color = "hsla(" + hue + ",100%,50%,1)";
@@ -21,6 +21,7 @@ class Obstacle {
             sco.play()
             score++;
             this.counted = true;
+
         }
         this.draw();
     }
