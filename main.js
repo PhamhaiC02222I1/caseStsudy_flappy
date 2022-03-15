@@ -22,7 +22,7 @@ function animate() {
     ctx.fillText(score, 450, 70);
     handleCollision();
     if (handleCollision()){
-        if  (confirm("play again?")) {
+       alert("play again?")
             ctx.drawImage(bang, bird.x, bird.y, 50, 50);
             ctx.font = "40px sans-serif";
             ctx.fillStyle = "Red";
@@ -32,7 +32,7 @@ function animate() {
                 canvas.height / 2
             );
             window.location.reload()
-        }else  window.location.reload()
+
 
         return;
     }
