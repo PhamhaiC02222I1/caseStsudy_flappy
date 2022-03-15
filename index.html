@@ -10,6 +10,23 @@
 <script src="bird.js"></script>
 <script src="obstacles.js"></script>
 <script src="main.js"></script>
+<table style="border: 1px;border-collapse: collapse">
+    <tr>
+        <th>TOP SCORE</th>
+    </tr>
+    <tbody id="draw" style="color: red;font-size: large;font-family: Arial">
 
+    </tbody>
+</table>
+
+<script>
+    let scores1 = localStorage.getItem('score');
+    let person1 =JSON.parse(scores1);
+    for ( let i=0;i<person1.length;i++){
+        document.getElementById('draw').innerHTML +=JSON.stringify(person1[i].name+":"+" "+person1[i].point)
+        document.getElementById('draw').innerHTML +='<br>'
+
+    }
+</script>
 </body>
 </html>

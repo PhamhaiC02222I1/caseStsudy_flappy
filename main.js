@@ -8,7 +8,6 @@ let hue = 0;
 let frame = 0;
 let score = 0;
 
-
 const background = new Image();
 background.src='BG.png';
 function animate() {
@@ -22,7 +21,9 @@ function animate() {
     ctx.fillText(score, 450, 70);
     handleCollision();
     if (handleCollision()){
-       alert("play again?")
+        saveScore(score);
+
+        alert("play again?")
             ctx.drawImage(bang, bird.x, bird.y, 50, 50);
             ctx.font = "40px sans-serif";
             ctx.fillStyle = "Red";
@@ -32,15 +33,8 @@ function animate() {
                 canvas.height / 2
             );
             window.location.reload()
-
-
         return;
     }
-
-
-            
-            // window.location.reload()
-
 
     requestAnimationFrame(animate);
     hue++;
@@ -75,3 +69,45 @@ function handleCollision() {
     }
 }
 animate();
+
+function loadScore() {
+    if(localStorage.hasOwnProperty('score')){
+        let scores = localStorage.getItem('score');
+        return JSON.parse(scores);//dua chuoi ve mang
+    }else {
+        return [];
+    }
+}
+
+function saveScore(score) {
+    let person = loadScore();
+    if(person.length === 0 || score > person[person.length-1].point){
+        let namePerson = prompt("Ten cua ban");
+        let objPerson = {
+            name:namePerson,
+            point:score
+        }
+        person.push(objPerson);
+
+
+    }
+    person.sort(compareScore);
+    if(person.length > 5)
+        person.splice(5);
+
+
+    let jsonScore = JSON.stringify(person);
+    localStorage.setItem('score',jsonScore);
+
+}
+
+function compareScore( a, b )
+{
+    if ( a.point < b.point){
+        return 1;
+    }
+    if (  a.point > b.point){
+        return -1;
+    }
+    return 0;
+}
