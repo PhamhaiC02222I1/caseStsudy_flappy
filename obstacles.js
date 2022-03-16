@@ -16,7 +16,7 @@ class Obstacle {
         ctx.fillRect(this.x, canvas.height - this.bottom, this.width, this.bottom);
     }
     update() {
-        this.x -= 10;
+        this.x -= 5;
         if (!this.counted && this.x+this.width < bird.x+bird.width) {
             sco.play()
             score++;
@@ -25,7 +25,7 @@ class Obstacle {
 
         }
         if(score>10){
-            this.x-=15
+            this.x-=8
 
         }
         this.draw();
@@ -34,7 +34,7 @@ class Obstacle {
 const sco =new Audio();
 sco.src='sound/score.mp3';
 function handlleObstacle() {
-    if (frame % 80 === 0) {
+    if (frame % 40 === 0) {
         obstaclesArray.unshift(new Obstacle());
     }
 
