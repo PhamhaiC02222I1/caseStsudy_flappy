@@ -16,7 +16,7 @@ class Obstacle {
         ctx.fillRect(this.x, canvas.height - this.bottom, this.width, this.bottom);
     }
     update() {
-        this.x -= 2;
+        this.x -= 10;
         if (!this.counted && this.x+this.width < bird.x+bird.width) {
             sco.play()
             score++;
@@ -25,7 +25,7 @@ class Obstacle {
 
         }
         if(score>10){
-            this.x-=3
+            this.x-=15
 
         }
         this.draw();
