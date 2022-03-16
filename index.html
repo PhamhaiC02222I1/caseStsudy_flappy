@@ -23,7 +23,10 @@
     let scores1 = localStorage.getItem('score');
     let person1 =JSON.parse(scores1);
     for ( let i=0;i<person1.length;i++){
-        document.getElementById('draw').innerHTML +=JSON.stringify(person1[i].name+":"+" "+person1[i].point)
+        // let name =JSON.stringify(person1[i].name)
+        let name =person1[i].name
+        let point =JSON.stringify(person1[i].point)
+        document.getElementById('draw').innerHTML +=name+": "+point
         document.getElementById('draw').innerHTML +='<br>'
 
     }
