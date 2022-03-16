@@ -1,8 +1,8 @@
 const obstaclesArray = [];
 class Obstacle {
     constructor() {
-        this.top = (Math.random() * canvas.height) / 3+40 ;
-        this.bottom = (Math.random() * canvas.height) / 3 +40;
+        this.top = (Math.random() * canvas.height) / 3+44 ;
+        this.bottom = (Math.random() * canvas.height) / 3 +44;
         this.x =500;
         this.width = 60;
         this.color = "hsla(" + hue + ",100%,50%,1)";
@@ -20,7 +20,12 @@ class Obstacle {
         if (!this.counted && this.x+this.width < bird.x+bird.width) {
             sco.play()
             score++;
+
             this.counted = true;
+
+        }
+        if(score>10){
+            this.x-=3
 
         }
         this.draw();
@@ -29,7 +34,7 @@ class Obstacle {
 const sco =new Audio();
 sco.src='sound/score.mp3';
 function handlleObstacle() {
-    if (frame % 100 === 0) {
+    if (frame % 150 === 0) {
         obstaclesArray.unshift(new Obstacle());
     }
 
