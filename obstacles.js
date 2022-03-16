@@ -34,7 +34,7 @@ class Obstacle {
 const sco =new Audio();
 sco.src='sound/score.mp3';
 function handlleObstacle() {
-    if (frame % 150 === 0) {
+    if (frame % 80 === 0) {
         obstaclesArray.unshift(new Obstacle());
     }
 
